@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="imdeafsy is a dual-degree undergraduate interested in digital IC design and AI for electronic design automation.">
+  <title>imdeafsy · Digital IC Design &amp; AI for EDA</title>
+  <link rel="canonical" href="https://imdeafsy.github.io/">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f7f6f1;
+      --paper: #fffefa;
+      --ink: #1e2529;
+      --muted: #47545c;
+      --line: #d6d8cf;
+      --green: #22604a;
+      --pale: #e7efe7;
+      --dark: #18342a;
+      --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font: 1rem/1.65 system-ui, sans-serif;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 500; }
+    a { color: var(--green); text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid #378361; outline-offset: 5px; }
+    .wrap { width: min(70rem, calc(100% - 3rem)); margin-inline: auto; }
+    .skip {
+      position: absolute;
+      inset: .75rem auto auto .75rem;
+      padding: .6rem 1rem;
+      background: var(--paper);
+      transform: translateY(-160%);
+    }
+    .skip:focus { transform: none; z-index: 1; }
+    .header { border-bottom: 1px solid var(--line); }
+    .header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .5rem 2rem;
+      flex-wrap: wrap;
+      min-height: 4.5rem;
+      padding-block: .45rem;
+    }
+    .brand {
+      color: var(--ink);
+      font: 700 1rem var(--mono);
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      text-decoration: none;
+    }
+    .brand::before {
+      content: "";
+      width: .7rem;
+      height: .7rem;
+      background: var(--green);
+      border-radius: .12rem;
+      box-shadow: inset 0 0 0 2px var(--green), inset 0 0 0 3px var(--page);
+    }
+    nav { display: flex; gap: .1rem 1.35rem; flex-wrap: wrap; }
+    nav a {
+      color: var(--muted);
+      font-size: .92rem;
+      padding-block: .42rem;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+      padding-block: clamp(3rem, 8vw, 6rem);
+    }
+    .eyebrow {
+      color: var(--green);
+      font: 700 .78rem/1.5 var(--mono);
+      letter-spacing: .085em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(2.65rem, 6vw, 5.2rem);
+      letter-spacing: -.055em;
+      line-height: 1.01;
+      margin-block: .75rem 1.45rem;
+    }
+    h1 span { display: block; color: var(--green); }
+    .intro { color: var(--muted); font-size: 1.08rem; max-width: 52ch; }
+    .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: .66rem 1rem;
+      color: white;
+      background: var(--dark);
+      border-radius: .3rem;
+      font-size: .92rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .button:hover { background: var(--green); }
+    .study {
+      padding: clamp(1.35rem, 3.4vw, 2.15rem);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--green);
+      background: var(--paper);
+      border-radius: .35rem;
+    }
+    .study h2 { font-size: 1.75rem; margin-block: .35rem 1rem; }
+    .study ul { margin: 0; padding: 0; list-style: none; }
+    .study li {
+      display: flex;
+      align-items: baseline;
+      gap: .72rem;
+      padding-block: .52rem;
+      border-top: 1px solid var(--line);
+    }
+    .study li::before {
+      content: "";
+      width: .38rem;
+      height: .38rem;
+      flex: 0 0 .38rem;
+      border: 1px solid var(--green);
+      transform: translateY(-.16em);
+    }
+    .study .graduation {
+      color: var(--green);
+      font: 650 .82rem/1.5 var(--mono);
+      margin-top: 1rem;
+    }
+    .section {
+      border-top: 1px solid var(--line);
+      padding-block: clamp(2.4rem, 5vw, 3.9rem);
+      scroll-margin-top: 1rem;
+    }
+    .section h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.15; }
+    .section-intro { color: var(--muted); margin-top: .6rem; }
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+    .topic { padding: 1.25rem 1.4rem; border-radius: .35rem; background: var(--pale); }
+    .topic h3, .plan h3 { font-size: 1.04rem; line-height: 1.4; }
+    .topic p, .plan p { color: var(--muted); margin-top: .36rem; }
+    .plan { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+    .plan li {
+      display: grid;
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: .3rem 1.4rem;
+      border-top: 1px solid var(--line);
+      padding-block: 1.05rem;
+    }
+    .date { color: var(--green); font: 700 .86rem/1.65 var(--mono); }
+    footer {
+      background: var(--pale);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+      padding-block: 1.4rem;
+    }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; }
+    @media (max-width: 48rem) {
+      .hero { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 35rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .topics, .plan li { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .header, .skip, .button, footer { display: none; }
+      body { background: white; }
+      .hero, .section { padding-block: 1.25rem; }
+      .study, .topic, .plan li { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="wrap">
+      <a class="brand" href="#top">imdeafsy</a>
+      <nav aria-label="Main navigation">
+        <a href="#learning">Learning</a>
+        <a href="#interests">Interests</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="hero" aria-labelledby="intro">
+      <div>
+        <p class="eyebrow">First-year dual-degree undergraduate</p>
+        <h1 id="intro">Digital IC Design <span>&amp; AI for EDA</span></h1>
+        <p class="intro">I’m a first-year student in a dual-degree program at Xiamen University of Technology and Universiti Sains Malaysia. I’m interested in how digital circuits are designed and how machine learning can support electronic design automation.</p>
+        <a class="button" href="https://github.com/imdeafsy">View my GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+      <aside id="learning" class="study" aria-labelledby="learning-title">
+        <p class="eyebrow">Currently learning</p>
+        <h2 id="learning-title">Programming &amp; hardware</h2>
+        <ul>
+          <li>C programming</li>
+          <li>PCB design fundamentals</li>
+          <li>STM32 microcontroller basics</li>
+        </ul>
+        <p class="graduation">Expected graduation · 2030</p>
+      </aside>
+    </section>
+    <section id="interests" class="section" aria-labelledby="interests-title">
+      <h2 id="interests-title">Research interests</h2>
+      <div class="topics">
+        <article class="topic">
+          <h3>Digital IC design</h3>
+          <p>I’d like to learn how digital logic moves from a register-transfer level (RTL) description through simulation, synthesis, and FPGA prototyping.</p>
+        </article>
+        <article class="topic">
+          <h3>AI for electronic design automation</h3>
+          <p>I’m interested in whether machine learning can estimate area and timing from RTL before synthesis, and how to evaluate those estimates on different circuit designs.</p>
+        </article>
+      </div>
+    </section>
+    <section id="roadmap" class="section" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">Learning roadmap</h2>
+      <p class="section-intro">Planned milestones and longer-term goals.</p>
+      <ol class="plan">
+        <li>
+          <p class="date"><time datetime="2027">2027</time></p>
+          <div><h3>Lanqiao Cup · PCB</h3><p>Prepare for and aim to enter the PCB track.</p></div>
+        </li>
+        <li>
+          <p class="date"><time datetime="2028">2028</time></p>
+          <div><h3>FPGA practice</h3><p>Learn to describe, simulate, and test small digital designs on an FPGA.</p></div>
+        </li>
+        <li>
+          <p class="date">Before Sep 2029</p>
+          <div><h3>Undergraduate research</h3><p>Aim to develop an undergraduate research project toward a paper suitable for submission to a journal indexed in the Science Citation Index.</p></div>
+        </li>
+        <li>
+          <p class="date">Graduate study</p>
+          <div><h3>HKUST ECE</h3><p>Hope to apply to a research-based graduate program in Electronic and Computer Engineering at the Hong Kong University of Science and Technology.</p></div>
+        </li>
+      </ol>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>imdeafsy</p>
+      <a href="https://github.com/imdeafsy/imdeafsy.github.io">Site source on GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>
